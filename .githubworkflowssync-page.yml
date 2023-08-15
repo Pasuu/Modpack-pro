@@ -1,0 +1,33 @@
+name: Sync Page Folder
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+      
+      - name: Sync Page Folder
+        run: |
+          # Specify the destination directory in Modpack.siteweb repo
+          DESTINATION_DIR="../Modpack.siteweb/page"
+
+          # Create the destination directory if not exists
+          mkdir -p "$DESTINATION_DIR"
+
+          # Copy the contents of the page folder to the destination
+          cp -r page/* "$DESTINATION_DIR"
+        
+      - name: Commit and Push Changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add .
+          git commit -m "Sync 'page' folder from Modpack-pro"
+          git push origin master
