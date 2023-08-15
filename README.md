@@ -9,4 +9,5 @@
 
 ### 当然你想提交PR也可以，具体方法就不在此细讲了。
 
-### 该仓库使用 CC-BY-NC-SA 协议
+### LICENSE:All rights reserved for all content, unless otherwise explicitly stated.
+### 部分内容来自其他作者，已授权。
